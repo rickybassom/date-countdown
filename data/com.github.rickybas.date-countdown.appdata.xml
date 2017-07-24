@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Ricky Bassom <https://github.com/rickybas> -->
+<component type="desktop-application">
+    <id>com.github.rickybas.date-countdown</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>GPL-3.0+</project_license>
+    <name>Date Countdown</name>
+    <summary>A date countdown applet</summary>
+    <description>
+        <p>Add muilple day countdowns for specific days</p>
+        <ul>
+            <li>Add new countdowns</li>
+            <li>Edit them</li>
+        </ul>
+    </description>
+    <provides>
+        <binary>com.github.rickybas.date-countdown</binary>
+    </provides>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://raw.githubusercontent.com/rickybas/date-countdown/master/data/screenshot.png</image>
+        </screenshot>
+    </screenshots>
+    <developer_name>Ricky Bassom</developer_name>
+    <url type="homepage">https://github.com/rickybas</url>
+    <url type="bugtracker">https://github.com/rickybas/date-countdown/issues</url>
+    <custom>
+        <value key="x-appcenter-color-primary">#f5f5f5</value>
+        <value key="x-appcenter-color-primary-text">#044b6c</value>
+    </custom>
+</component>

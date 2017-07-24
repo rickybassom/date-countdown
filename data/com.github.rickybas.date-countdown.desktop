@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Date Countdown
+Comment=A date countdown applet
+Exec=com.github.rickybas.date-countdown
+Icon=com.github.rickybas.date-countdown
+Keywords=date;time;applet;countdown;
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Utility;
