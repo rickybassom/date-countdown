@@ -176,9 +176,9 @@ public class MainWindow : Gtk.Dialog {
         load_countdowns ();
 
         if (countdowns.length == 0){
-            grid.margin_bottom = 100;
+            grid.margin = 100;
         } else {
-            grid.margin_bottom = 0;
+            grid.margin = 0;
         }
 
         countdowns.foreach ((countdown) => {
