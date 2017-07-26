@@ -17,6 +17,9 @@
  *  Boston, MA 02110-1301 USA.
  */
 
+// FROM: https://github.com/elementary/granite/blob/master/lib/Widgets/DatePicker.valac
+// Did not include access to calendar widget to select dates
+
 
 /**
  * This class allows users to pick dates from a calendar.

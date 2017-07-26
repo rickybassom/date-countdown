@@ -3,9 +3,6 @@ A date countdown applet
 
 ![Screenshot](data/screenshot.png)
 
-* Add new countdowns
-* Right click to edit
-
 ## Dependencies
 These dependencies must be present before building
 

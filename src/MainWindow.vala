@@ -176,7 +176,7 @@ public class MainWindow : Gtk.Dialog {
         load_countdowns ();
 
         if (countdowns.length == 0){
-            grid.margin = 100;
+            grid.margin = 130;
         } else {
             grid.margin = 0;
         }
@@ -184,7 +184,9 @@ public class MainWindow : Gtk.Dialog {
         countdowns.foreach ((countdown) => {
             var countdown_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             if (countdowns.length == 1){
-                countdown_box.margin = 30;
+                countdown_box.margin = 8;
+                countdown_box.margin_left = 130;
+                countdown_box.margin_right = 130;
             } else {
                 countdown_box.margin = 8;
             }

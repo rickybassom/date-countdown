@@ -7,10 +7,11 @@
     <name>Date Countdown</name>
     <summary>A date countdown applet</summary>
     <description>
-        <p>Add muilple day countdowns for specific days</p>
+        <p>Add multiple countdown timers for specific days</p>
         <ul>
             <li>Add new countdowns</li>
-            <li>Edit them</li>
+            <li>Right click to edit each countdown</li>
+	    <li>Specify the start date too</li>
         </ul>
     </description>
     <provides>
