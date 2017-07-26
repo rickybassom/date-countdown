@@ -46,6 +46,7 @@ public class MainWindow : Gtk.Dialog {
 
     private const int seconds_in_min = 86400;
     private const int refresh_time = 300000; // 5 min
+    private const int pbar_size = 105;
 
     public MainWindow (Gtk.Application application) {
         Object (application: application,
@@ -73,8 +74,8 @@ public class MainWindow : Gtk.Dialog {
         draw_countdowns ();
 
         add_button = new Gtk.Button.with_label ("Add");
+        add_button.margin = 4;
         add_button.halign = Gtk.Align.CENTER;
-        add_button.margin = 8;
         add_button.clicked.connect (() => {
             creating = true;
             new_title_entry.text = "";
@@ -162,9 +163,8 @@ public class MainWindow : Gtk.Dialog {
             var pbar = new CircularProgressWidgets.CircularProgressBar ();
             pbar.line_cap =  Cairo.LineCap.ROUND;
             pbar.margin = 8;
-            pbar.width_request = 100;
-            pbar.height_request = 100;
-            pbar.can_focus = false;
+            pbar.width_request = pbar_size;
+            pbar.height_request = pbar_size;
             pbar.line_width = 8;
 
             string shorten_title = countdown.title;
