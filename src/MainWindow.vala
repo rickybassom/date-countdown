@@ -113,7 +113,7 @@ public class MainWindow : Gtk.Dialog {
         });
 
         create_popover = new Gtk.Popover (add_button);
-        create_popover.constrain_to = Gtk.PopoverConstraint.NONE;
+        // create_popover.constrain_to = Gtk.PopoverConstraint.NONE;
         create_popover.position = Gtk.PositionType.TOP;
         var create_popover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
         create_popover_box.add (new_warning_rev);
@@ -224,7 +224,7 @@ public class MainWindow : Gtk.Dialog {
                     edit_warning_rev.add (edit_warning_label);
 
                     Gtk.Popover edit_popover = new Gtk.Popover (pbar);
-                    edit_popover.constrain_to = Gtk.PopoverConstraint.NONE;
+                    // edit_popover.constrain_to = Gtk.PopoverConstraint.NONE;
                     edit_popover.position = Gtk.PositionType.RIGHT;
                     edit_popover.closed.connect (() => {
                         editing = false;
