@@ -1,7 +1,7 @@
 Source: com.github.rickybas.date-countdown
 Section: x11
 Priority: extra
-Maintainer: Ricky Bassom <>
+Maintainer: Ricky Bassom <rbassom@yahoo.com>
 Build-Depends: meson,
                debhelper (>= 9),
                libgtk-3-dev,
