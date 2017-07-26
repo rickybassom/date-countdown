@@ -42,6 +42,7 @@ public class MainWindow : Gtk.Dialog {
     public new Gtk.Button add_button { get; construct set; }
 
     public bool editing { get; set; default = false; }
+    public bool creating { get; set; default = false; }
 
     private const int seconds_in_min = 86400;
     private const int refresh_time = 300000; // 5 min
@@ -75,6 +76,7 @@ public class MainWindow : Gtk.Dialog {
         add_button.halign = Gtk.Align.CENTER;
         add_button.margin = 8;
         add_button.clicked.connect (() => {
+            creating = true;
             new_title_entry.text = "";
 
             var now = get_time_now ();
@@ -112,6 +114,7 @@ public class MainWindow : Gtk.Dialog {
 
         create_popover = new Gtk.Popover (add_button);
         create_popover.constrain_to = Gtk.PopoverConstraint.NONE;
+        create_popover.position = Gtk.PositionType.TOP;
         var create_popover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
         create_popover_box.add (new_warning_rev);
         create_popover_box.add (new Gtk.Label ("Title: "));
@@ -125,6 +128,7 @@ public class MainWindow : Gtk.Dialog {
         create_popover.add (create_popover_box);
 
         create_popover.closed.connect (() => {
+            creating = false;
             new_warning_label.label = "";
             new_warning_rev.reveal_child = false;
         });
@@ -136,7 +140,7 @@ public class MainWindow : Gtk.Dialog {
         content_box.show_all ();
 
         button_press_event.connect ((e) => {
-            if (e.button == Gdk.BUTTON_PRIMARY && !editing) {
+            if (e.button == Gdk.BUTTON_PRIMARY && !editing && !creating) {
                 begin_move_drag ((int) e.button, (int) e.x_root, (int) e.y_root, e.time);
                 return true;
             }
@@ -221,6 +225,7 @@ public class MainWindow : Gtk.Dialog {
 
                     Gtk.Popover edit_popover = new Gtk.Popover (pbar);
                     edit_popover.constrain_to = Gtk.PopoverConstraint.NONE;
+                    edit_popover.position = Gtk.PositionType.RIGHT;
                     edit_popover.closed.connect (() => {
                         editing = false;
                         edit_popover.visible = false;
