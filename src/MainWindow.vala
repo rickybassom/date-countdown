@@ -47,6 +47,8 @@ public class MainWindow : Gtk.Dialog {
     private const int seconds_in_min = 86400;
     private const int refresh_time = 300000; // 5 min
     private const int pbar_size = 105;
+    private const string pbar_progress_color = "#4a90d9";
+    private const string pbar_complete_color = "#ed5353";
 
     public MainWindow (Gtk.Application application) {
         Object (application: application,
@@ -70,6 +72,13 @@ public class MainWindow : Gtk.Dialog {
         grid.set_max_children_per_line (5);
         grid.set_selection_mode (Gtk.SelectionMode.NONE);
         grid.can_focus = false;
+        grid.button_press_event.connect ((e) => {
+            if (e.button == Gdk.BUTTON_PRIMARY) {
+                begin_move_drag ((int) e.button, (int) e.x_root, (int) e.y_root, e.time);
+                return true;
+            }
+            return false;
+        });
 
         draw_countdowns ();
 
@@ -80,8 +89,8 @@ public class MainWindow : Gtk.Dialog {
             creating = true;
             new_title_entry.text = "";
 
-            var now_date = new DateTime.from_unix_local ((int) get_time_now ().add_days (1).to_unix ());
-            var future_date = new DateTime.from_unix_local ((int) get_time_now ().to_unix ());
+            var now_date = new DateTime.from_unix_local ((int) get_time_now ().to_unix ());
+            var future_date = new DateTime.from_unix_local ((int) get_time_now ().add_days (1).to_unix ());
 
             new_end_date_entry.calendar.select_day (future_date.get_day_of_month ());
             new_end_date_entry.calendar.select_month (future_date.get_month ()-1, future_date.get_year ());
@@ -105,6 +114,7 @@ public class MainWindow : Gtk.Dialog {
         new_title_entry.placeholder_text = "Title";
         new_end_date_entry = new DatePicker ();
         new_start_date_entry = new DatePicker ();
+
         new_create_button = new Gtk.Button.with_label ("Create");
         new_create_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         new_create_button.clicked.connect (() => {
@@ -164,9 +174,21 @@ public class MainWindow : Gtk.Dialog {
     private void draw_countdowns () {
         grid.forall ((element) => grid.remove (element));
         load_countdowns ();
+
+        if (countdowns.length == 0){
+            grid.margin_bottom = 100;
+        } else {
+            grid.margin_bottom = 0;
+        }
+
         countdowns.foreach ((countdown) => {
             var countdown_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            countdown_box.margin = 8;
+            if (countdowns.length == 1){
+                countdown_box.margin = 30;
+            } else {
+                countdown_box.margin = 8;
+            }
+
             var pbar = new CircularProgressWidgets.CircularProgressBar ();
             pbar.line_cap =  Cairo.LineCap.ROUND;
             pbar.margin = 8;
@@ -191,12 +213,12 @@ public class MainWindow : Gtk.Dialog {
             countdown_box.add (title_label);
 
             if (pbar.percentage >= 1.0) { // if completed
-                pbar.progress_fill_color = "#ed5353";
+                pbar.progress_fill_color = pbar_complete_color;
                 var completed_label = new Gtk.Label ("<span size=\"small\">Completed</span>");
                 completed_label.set_use_markup (true);
                 countdown_box.add (completed_label);
             } else {
-                pbar.progress_fill_color = "#4a90d9";
+                pbar.progress_fill_color = pbar_progress_color;
 
                 var days_remaining_label = new Gtk.Label (
                     "<span size=\"small\"><b>Days remaining: </b>" + days_remaining.to_string () + "</span>");
@@ -212,13 +234,6 @@ public class MainWindow : Gtk.Dialog {
 
             var event_box = new Gtk.EventBox ();
             event_box.add (countdown_box);
-            event_box.button_press_event.connect ((e) => {
-                if (e.button == Gdk.BUTTON_PRIMARY) {
-                    begin_move_drag ((int) e.button, (int) e.x_root, (int) e.y_root, e.time);
-                    return true;
-                }
-                return false;
-            });
             event_box.button_release_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_SECONDARY) {
                     editing = true;
@@ -280,6 +295,7 @@ public class MainWindow : Gtk.Dialog {
                     });
 
                     remove_button.clicked.connect (() => {
+                        editing = false;
                         remove_countdown (countdown.id);
                         draw_countdowns ();
                     });
@@ -326,7 +342,11 @@ public class MainWindow : Gtk.Dialog {
 
             var now = get_time_now ();
             var future = now.add_days (3);
-            file.create (FileCreateFlags.NONE);
+            try {
+                file.create (FileCreateFlags.NONE);
+            } catch (Error e) {
+                error ("%s", e.message);
+            }
             if (file.query_exists ()) {
                 stdout.printf ("File successfully created.\n");
             }
@@ -372,8 +392,12 @@ public class MainWindow : Gtk.Dialog {
     private void add_countdown (string title, int64 end_date, int64 start_date) {
         create_start_data_file_if_not_exists ();
         string file_contents = "";
-        FileUtils.get_contents (data_file, out file_contents);
-        FileUtils.set_contents (data_file, file_contents + "%i,%i,%s".printf ((int) end_date, (int) start_date, title) + "\n");
+        try {
+            FileUtils.get_contents (data_file, out file_contents);
+            FileUtils.set_contents (data_file, file_contents + "%i,%i,%s".printf ((int) end_date, (int) start_date, title) + "\n");
+        } catch (Error e) {
+            error ("%s", e.message);
+        }
     }
 
     private void edit_countdown (int id, string title, int64 end_date, int64 start_date) {
@@ -401,7 +425,11 @@ public class MainWindow : Gtk.Dialog {
             error ("%s", e.message);
         }
 
-        FileUtils.set_contents (data_file, new_file);
+        try {
+            FileUtils.set_contents (data_file, new_file);
+        } catch (Error e) {
+            error ("%s", e.message);
+        }
     }
 
     private void remove_countdown (int id) {
@@ -425,7 +453,11 @@ public class MainWindow : Gtk.Dialog {
             error ("%s", e.message);
         }
 
-        FileUtils.set_contents (data_file, new_file);
+        try {
+            FileUtils.set_contents (data_file, new_file);
+        } catch (Error e) {
+            error ("%s", e.message);
+        }
     }
 
     private int unix_to_days (int unix_time) {
