@@ -135,6 +135,14 @@ public class MainWindow : Gtk.Dialog {
         content_box.pack_end (add_button, false, false, 0);
         content_box.show_all ();
 
+        button_press_event.connect ((e) => {
+            if (e.button == Gdk.BUTTON_PRIMARY && !editing) {
+                begin_move_drag ((int) e.button, (int) e.x_root, (int) e.y_root, e.time);
+                return true;
+            }
+            return false;
+        });
+
         Timeout.add (refresh_time, () => {
             if (!editing) draw_countdowns ();
             return true;
@@ -193,73 +201,82 @@ public class MainWindow : Gtk.Dialog {
 
             var event_box = new Gtk.EventBox ();
             event_box.add (countdown_box);
-            event_box.button_press_event.connect (() => {
-                editing = true;
+            event_box.button_press_event.connect ((e) => {
+                if (e.button == Gdk.BUTTON_PRIMARY) {
+                    begin_move_drag ((int) e.button, (int) e.x_root, (int) e.y_root, e.time);
+                    return true;
+                }
+                return false;
+            });
+            event_box.button_release_event.connect ((e) => {
+                if (e.button == Gdk.BUTTON_SECONDARY) {
+                    editing = true;
 
-                var edit_warning_rev = new Gtk.Revealer ();
-                edit_warning_rev.reveal_child = false;
-                edit_warning_rev.set_transition_type (Gtk.RevealerTransitionType.SLIDE_DOWN);
-                var edit_warning_label = new Gtk.Label ("");
-                edit_warning_label.set_use_markup (true);
-                edit_warning_rev.add (edit_warning_label);
-
-                Gtk.Popover edit_popover = new Gtk.Popover (pbar);
-                edit_popover.closed.connect (() => {
-                    editing = false;
-                    edit_popover.visible = false;
-                    edit_warning_label.label = "";
+                    var edit_warning_rev = new Gtk.Revealer ();
                     edit_warning_rev.reveal_child = false;
-                });
-                var edit_popover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
+                    edit_warning_rev.set_transition_type (Gtk.RevealerTransitionType.SLIDE_DOWN);
+                    var edit_warning_label = new Gtk.Label ("");
+                    edit_warning_label.set_use_markup (true);
+                    edit_warning_rev.add (edit_warning_label);
 
-                var edit_button = new Gtk.Button.with_label ("Save changes");
-                edit_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-                var remove_button = new Gtk.Button.with_label ("Remove");
-                remove_button.get_style_context().add_class(Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-                remove_button.margin_top = 16;
-
-                var edit_title_entry = new Gtk.Entry ();
-                edit_title_entry.placeholder_text = "Title";
-                var edit_end_date_entry = new Granite.Widgets.DatePicker ();
-                var edit_start_date_entry = new Granite.Widgets.DatePicker ();
-
-                edit_title_entry.text = countdown.title;
-                edit_end_date_entry.date = new DateTime.from_unix_utc (countdown.end_date);
-                edit_start_date_entry.date = new DateTime.from_unix_utc (countdown.start_date);
-
-                edit_button.clicked.connect (() => {
-                    var validate = validate_input (edit_title_entry.text,
-                        (int) edit_end_date_entry.date.to_unix (), (int) edit_start_date_entry.date.to_unix ());
-                    if (validate == null) {
-                        edit_countdown (countdown.id, edit_title_entry.text,
-                            edit_end_date_entry.date.to_unix (), edit_start_date_entry.date.to_unix ());
-                        draw_countdowns ();
+                    Gtk.Popover edit_popover = new Gtk.Popover (pbar);
+                    edit_popover.closed.connect (() => {
+                        editing = false;
                         edit_popover.visible = false;
-                    } else {
-                        edit_warning_label.label = "<span foreground=\"red\">" + validate + "</span>";
-                        edit_warning_rev.reveal_child = true;
-                    }
-                });
+                        edit_warning_label.label = "";
+                        edit_warning_rev.reveal_child = false;
+                    });
+                    var edit_popover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
 
-                remove_button.clicked.connect (() => {
-                    remove_countdown (countdown.id);
-                    draw_countdowns ();
-                });
+                    var edit_button = new Gtk.Button.with_label ("Save changes");
+                    edit_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+                    var remove_button = new Gtk.Button.with_label ("Remove");
+                    remove_button.get_style_context().add_class(Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+                    remove_button.margin_top = 16;
 
-                edit_popover_box.add (edit_warning_rev);
-                edit_popover_box.add (new Gtk.Label ("Title: "));
-                edit_popover_box.add (edit_title_entry);
-                edit_popover_box.add (new Gtk.Label ("Start date: "));
-                edit_popover_box.add (edit_start_date_entry);
-                edit_popover_box.add (new Gtk.Label ("End date: "));
-                edit_popover_box.add (edit_end_date_entry);
+                    var edit_title_entry = new Gtk.Entry ();
+                    edit_title_entry.placeholder_text = "Title";
+                    var edit_end_date_entry = new Granite.Widgets.DatePicker ();
+                    var edit_start_date_entry = new Granite.Widgets.DatePicker ();
 
-                edit_popover_box.add (edit_button);
-                edit_popover_box.add (remove_button);
+                    edit_title_entry.text = countdown.title;
+                    edit_end_date_entry.date = new DateTime.from_unix_utc (countdown.end_date);
+                    edit_start_date_entry.date = new DateTime.from_unix_utc (countdown.start_date);
 
-                edit_popover_box.show_all ();
-                edit_popover.add (edit_popover_box);
-                edit_popover.show_all ();
+                    edit_button.clicked.connect (() => {
+                        var validate = validate_input (edit_title_entry.text,
+                            (int) edit_end_date_entry.date.to_unix (), (int) edit_start_date_entry.date.to_unix ());
+                        if (validate == null) {
+                            edit_countdown (countdown.id, edit_title_entry.text,
+                                edit_end_date_entry.date.to_unix (), edit_start_date_entry.date.to_unix ());
+                            draw_countdowns ();
+                            edit_popover.visible = false;
+                        } else {
+                            edit_warning_label.label = "<span foreground=\"red\">" + validate + "</span>";
+                            edit_warning_rev.reveal_child = true;
+                        }
+                    });
+
+                    remove_button.clicked.connect (() => {
+                        remove_countdown (countdown.id);
+                        draw_countdowns ();
+                    });
+
+                    edit_popover_box.add (edit_warning_rev);
+                    edit_popover_box.add (new Gtk.Label ("Title: "));
+                    edit_popover_box.add (edit_title_entry);
+                    edit_popover_box.add (new Gtk.Label ("Start date: "));
+                    edit_popover_box.add (edit_start_date_entry);
+                    edit_popover_box.add (new Gtk.Label ("End date: "));
+                    edit_popover_box.add (edit_end_date_entry);
+
+                    edit_popover_box.add (edit_button);
+                    edit_popover_box.add (remove_button);
+
+                    edit_popover_box.show_all ();
+                    edit_popover.add (edit_popover_box);
+                    edit_popover.show_all ();
+                }
                 return true;
             });
 
