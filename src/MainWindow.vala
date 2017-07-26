@@ -73,8 +73,7 @@ public class MainWindow : Gtk.Dialog {
 
         add_button = new Gtk.Button.with_label ("Add");
         add_button.halign = Gtk.Align.CENTER;
-        add_button.margin_top = 36;
-        add_button.margin_bottom = 8;
+        add_button.margin = 8;
         add_button.clicked.connect (() => {
             new_title_entry.text = "";
 
@@ -112,6 +111,7 @@ public class MainWindow : Gtk.Dialog {
         });
 
         create_popover = new Gtk.Popover (add_button);
+        create_popover.constrain_to = Gtk.PopoverConstraint.NONE;
         var create_popover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
         create_popover_box.add (new_warning_rev);
         create_popover_box.add (new Gtk.Label ("Title: "));
@@ -158,8 +158,8 @@ public class MainWindow : Gtk.Dialog {
             var pbar = new CircularProgressWidgets.CircularProgressBar ();
             pbar.line_cap =  Cairo.LineCap.ROUND;
             pbar.margin = 8;
-            pbar.width_request = 110;
-            pbar.height_request = 110;
+            pbar.width_request = 100;
+            pbar.height_request = 100;
             pbar.can_focus = false;
             pbar.line_width = 8;
 
@@ -220,6 +220,7 @@ public class MainWindow : Gtk.Dialog {
                     edit_warning_rev.add (edit_warning_label);
 
                     Gtk.Popover edit_popover = new Gtk.Popover (pbar);
+                    edit_popover.constrain_to = Gtk.PopoverConstraint.NONE;
                     edit_popover.closed.connect (() => {
                         editing = false;
                         edit_popover.visible = false;
