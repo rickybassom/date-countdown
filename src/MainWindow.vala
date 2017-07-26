@@ -33,8 +33,8 @@ public class MainWindow : Gtk.Dialog {
     public Gtk.Popover create_popover { get; construct set; }
 
     public Gtk.Entry new_title_entry { get; construct set; }
-    public Granite.Widgets.DatePicker new_end_date_entry { get; construct set; }
-    public Granite.Widgets.DatePicker new_start_date_entry { get; construct set; }
+    public DatePicker new_end_date_entry { get; construct set; }
+    public DatePicker new_start_date_entry { get; construct set; }
     public Gtk.Button new_create_button { get; construct set; }
     public Gtk.Revealer new_warning_rev { get; construct set; }
     public Gtk.Label new_warning_label { get; construct set; }
@@ -80,10 +80,17 @@ public class MainWindow : Gtk.Dialog {
             creating = true;
             new_title_entry.text = "";
 
-            var now = get_time_now ();
+            var now_date = new DateTime.from_unix_local ((int) get_time_now ().add_days (1).to_unix ());
+            var future_date = new DateTime.from_unix_local ((int) get_time_now ().to_unix ());
 
-            new_end_date_entry.date = new DateTime.from_unix_local ((int) now.add_days (1).to_unix ());
-            new_start_date_entry.date = new DateTime.from_unix_local ((int) now.to_unix ());
+            new_end_date_entry.calendar.select_day (future_date.get_day_of_month ());
+            new_end_date_entry.calendar.select_month (future_date.get_month ()-1, future_date.get_year ());
+
+            new_start_date_entry.calendar.select_day (now_date.get_day_of_month ());
+            new_start_date_entry.calendar.select_month (now_date.get_month ()-1, now_date.get_year ());
+
+            new_end_date_entry.date = future_date;
+            new_start_date_entry.date = now_date;
             create_popover.visible = true;
         });
 
@@ -96,8 +103,8 @@ public class MainWindow : Gtk.Dialog {
 
         new_title_entry = new Gtk.Entry ();
         new_title_entry.placeholder_text = "Title";
-        new_end_date_entry = new Granite.Widgets.DatePicker ();
-        new_start_date_entry = new Granite.Widgets.DatePicker ();
+        new_end_date_entry = new DatePicker ();
+        new_start_date_entry = new DatePicker ();
         new_create_button = new Gtk.Button.with_label ("Create");
         new_create_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         new_create_button.clicked.connect (() => {
@@ -242,12 +249,21 @@ public class MainWindow : Gtk.Dialog {
 
                     var edit_title_entry = new Gtk.Entry ();
                     edit_title_entry.placeholder_text = "Title";
-                    var edit_end_date_entry = new Granite.Widgets.DatePicker ();
-                    var edit_start_date_entry = new Granite.Widgets.DatePicker ();
+                    var edit_end_date_entry = new DatePicker ();
+                    var edit_start_date_entry = new DatePicker ();
+
+                    var end_date = new DateTime.from_unix_local (countdown.end_date);
+                    var start_date = new DateTime.from_unix_local (countdown.start_date);
+
+                    edit_end_date_entry.calendar.select_day (end_date.get_day_of_month ());
+                    edit_end_date_entry.calendar.select_month (end_date.get_month ()-1, end_date.get_year ());
+
+                    edit_start_date_entry.calendar.select_day (start_date.get_day_of_month ());
+                    edit_start_date_entry.calendar.select_month (start_date.get_month ()-1, start_date.get_year ());
 
                     edit_title_entry.text = countdown.title;
-                    edit_end_date_entry.date = new DateTime.from_unix_local (countdown.end_date);
-                    edit_start_date_entry.date = new DateTime.from_unix_local (countdown.start_date);
+                    edit_end_date_entry.date = end_date;
+                    edit_start_date_entry.date = start_date;
 
                     edit_button.clicked.connect (() => {
                         var validate = validate_input (edit_title_entry.text,

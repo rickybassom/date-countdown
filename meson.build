@@ -29,6 +29,7 @@ executable(
     'src/Application.vala',
     'src/MainWindow.vala',
     'src/circular-progress-bar.vala',
+    'src/DatePicker.vala',
     asresources,
     c_args: c_args,
     link_args: [ '-lm' ],
