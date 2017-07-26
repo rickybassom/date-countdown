@@ -25,7 +25,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="5.27"
      inkscape:cx="38.925866"
-     inkscape:cy="61.950664"
+     inkscape:cy="92.311195"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -62,7 +62,7 @@
        sodipodi:nodetypes="csccc" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;font-family:sans-serif;fill:#f8f8f8;fill-opacity:1;stroke:#626262;stroke-width:0.62362206;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:40px;font-family:sans-serif;fill:#f8f8f8;fill-opacity:1;stroke:#2f2f2f;stroke-width:1.0015748;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
        x="63.98698"
        y="83.414062"
        id="text4360"><tspan
@@ -70,6 +70,6 @@
          id="tspan4358"
          x="63.98698"
          y="83.414062"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.33333206px;line-height:0;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#f1f1f1;fill-opacity:1;stroke:#626262;stroke-width:0.62362206;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">%</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.33333206px;line-height:0;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#f1f1f1;fill-opacity:1;stroke:#2f2f2f;stroke-width:1.0015748;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;">%</tspan></text>
   </g>
 </svg>
