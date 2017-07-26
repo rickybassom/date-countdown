@@ -82,8 +82,8 @@ public class MainWindow : Gtk.Dialog {
 
             var now = get_time_now ();
 
-            new_end_date_entry.date = new DateTime.from_unix_utc ((int) now.add_days (1).to_unix ());
-            new_start_date_entry.date = new DateTime.from_unix_utc ((int) now.to_unix ());
+            new_end_date_entry.date = new DateTime.from_unix_local ((int) now.add_days (1).to_unix ());
+            new_start_date_entry.date = new DateTime.from_unix_local ((int) now.to_unix ());
             create_popover.visible = true;
         });
 
@@ -246,8 +246,8 @@ public class MainWindow : Gtk.Dialog {
                     var edit_start_date_entry = new Granite.Widgets.DatePicker ();
 
                     edit_title_entry.text = countdown.title;
-                    edit_end_date_entry.date = new DateTime.from_unix_utc (countdown.end_date);
-                    edit_start_date_entry.date = new DateTime.from_unix_utc (countdown.start_date);
+                    edit_end_date_entry.date = new DateTime.from_unix_local (countdown.end_date);
+                    edit_start_date_entry.date = new DateTime.from_unix_local (countdown.start_date);
 
                     edit_button.clicked.connect (() => {
                         var validate = validate_input (edit_title_entry.text,
