@@ -1,3 +1,10 @@
+com.github.rickybas.date-countdown (0.1.1) xenial; urgency=low
+
+  * Fix homepage link
+  * Add appcenter badge
+
+ -- Ricky Bassom <rbassom@yahoo.com>  Thurs, 27 Jul 2017 13:09:00 -0800
+
 com.github.rickybas.date-countdown (0.1.0) xenial; urgency=low
 
   * Initial Release.
