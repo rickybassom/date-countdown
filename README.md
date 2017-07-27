@@ -1,4 +1,6 @@
 # date-countdown
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.rickybas.date-countdown)
+
 A date countdown applet
 
 ![Screenshot](data/screenshot.png)
@@ -18,6 +20,5 @@ git clone https://github.com/rickybas/date-countdown.git
 cd date-countdown
 meson build
 cd build
-ninja # or 'ninja-build' on some distributions
 sudo ninja install
 ```

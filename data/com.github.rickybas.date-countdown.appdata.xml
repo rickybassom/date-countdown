@@ -23,7 +23,7 @@
         </screenshot>
     </screenshots>
     <developer_name>Ricky Bassom</developer_name>
-    <url type="homepage">https://github.com/rickybas</url>
+    <url type="homepage">https://github.com/rickybas/date-countdown</url>
     <url type="bugtracker">https://github.com/rickybas/date-countdown/issues</url>
     <custom>
         <value key="x-appcenter-color-primary">#f5f5f5</value>
