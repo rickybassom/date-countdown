@@ -192,19 +192,17 @@ public class MainWindow : Gtk.Dialog {
             }
 
             var pbar = new CircularProgressWidgets.CircularProgressBar ();
-            pbar.line_cap =  Cairo.LineCap.ROUND;
+            pbar.line_cap = Cairo.LineCap.ROUND;
             pbar.margin = 8;
             pbar.width_request = pbar_size;
             pbar.height_request = pbar_size;
             pbar.line_width = 8;
 
-            string shorten_title = countdown.title;
-            if (countdown.title.length > 20) shorten_title = countdown.title.slice (0, 20) +  "…";
-
-            var title_label = new Gtk.Label ("<b><span size=\"large\">" + shorten_title + "</span></b>");
+            var title_label = new Gtk.Label ("<b><span size=\"large\">" + countdown.title + "</span></b>");
             title_label.margin_bottom = 6;
             title_label.set_use_markup (true);
-            title_label.set_line_wrap (true);
+            title_label.max_width_chars = 20;
+            title_label.ellipsize = Pango.EllipsizeMode.END;
             title_label.set_tooltip_text (countdown.title);
 
             int days_remaining = unix_to_days (countdown.end_date - (int) get_time_now ().to_unix ());
