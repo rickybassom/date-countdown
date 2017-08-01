@@ -217,7 +217,8 @@ namespace CircularProgressWidgets {
             Gdk.cairo_set_source_rgba (cr, color);
 
             // Percentage
-            layout = Pango.cairo_create_layout (cr);          layout.set_text ("%d".printf ((int) (percentage * 100.0)), -1);
+            layout = Pango.cairo_create_layout (cr);
+            layout.set_text ("%d".printf ((int) (percentage * 100.0)), -1);
             desc = Pango.FontDescription.from_string (font + " 24");
             layout.set_font_description (desc);
             Pango.cairo_update_layout (cr, layout);
@@ -226,7 +227,7 @@ namespace CircularProgressWidgets {
             Pango.cairo_show_layout (cr, layout);
 
             // Units indicator ('PERCENT')
-            layout.set_text ("% complete", -1);
+            layout.set_text (_("% complete"), -1);
             desc = Pango.FontDescription.from_string (font + " 8");
             layout.set_font_description (desc);
             Pango.cairo_update_layout (cr, layout);

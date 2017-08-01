@@ -54,7 +54,7 @@ public class MainWindow : Gtk.Dialog {
         Object (application: application,
                 icon_name: "com.github.rickybas.date-countdown",
                 resizable: false,
-                title: _("Date Countdown"));
+                title: "Date Countdown");
     }
 
     construct {
@@ -82,7 +82,7 @@ public class MainWindow : Gtk.Dialog {
 
         draw_countdowns ();
 
-        add_button = new Gtk.Button.with_label ("Add");
+        add_button = new Gtk.Button.with_label (_("Add"));
         add_button.margin = 4;
         add_button.halign = Gtk.Align.CENTER;
         add_button.clicked.connect (() => {
@@ -107,21 +107,22 @@ public class MainWindow : Gtk.Dialog {
         new_warning_rev.reveal_child = false;
         new_warning_rev.set_transition_type (Gtk.RevealerTransitionType.SLIDE_DOWN);
         new_warning_label = new Gtk.Label ("");
-        new_warning_label.get_style_context().add_class("warning");
+        new_warning_label.get_style_context ().add_class ("warning");
         new_warning_rev.add (new_warning_label);
 
         new_title_entry = new Gtk.Entry ();
-        new_title_entry.placeholder_text = "Title";
+        new_title_entry.placeholder_text = _("Title");
         new_end_date_entry = new DatePicker ();
         new_start_date_entry = new DatePicker ();
 
-        new_create_button = new Gtk.Button.with_label ("Create");
-        new_create_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        new_create_button = new Gtk.Button.with_label (_("Create"));
+        new_create_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         new_create_button.clicked.connect (() => {
             var validate = validate_input (new_title_entry.text,
                 (int) new_end_date_entry.date.to_unix (), (int) new_start_date_entry.date.to_unix ());
             if (validate == null) {
-                add_countdown (new_title_entry.text, new_end_date_entry.date.to_unix (), new_start_date_entry.date.to_unix ());
+                add_countdown (new_title_entry.text, new_end_date_entry.date.to_unix (),
+                    new_start_date_entry.date.to_unix ());
                 create_popover.visible = false;
                 draw_countdowns ();
             } else {
@@ -135,11 +136,11 @@ public class MainWindow : Gtk.Dialog {
         create_popover.position = Gtk.PositionType.TOP;
         var create_popover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
         create_popover_box.add (new_warning_rev);
-        create_popover_box.add (new Gtk.Label ("Title: "));
+        create_popover_box.add (new Gtk.Label (_("Title: ")));
         create_popover_box.add (new_title_entry);
-        create_popover_box.add (new Gtk.Label ("Enter start date: "));
+        create_popover_box.add (new Gtk.Label (_("Enter start date: ")));
         create_popover_box.add (new_start_date_entry);
-        create_popover_box.add (new Gtk.Label ("Enter end date: "));
+        create_popover_box.add (new Gtk.Label (_("Enter end date: ")));
         create_popover_box.add (new_end_date_entry);
         create_popover_box.add (new_create_button);
         create_popover_box.show_all ();
@@ -199,7 +200,7 @@ public class MainWindow : Gtk.Dialog {
             pbar.line_width = 8;
 
             var title_label = new Gtk.Label (countdown.title);
-            title_label.get_style_context().add_class("title");
+            title_label.get_style_context ().add_class ("countdown-title");
             title_label.margin_bottom = 6;
             title_label.max_width_chars = 20;
             title_label.ellipsize = Pango.EllipsizeMode.END;
@@ -215,20 +216,20 @@ public class MainWindow : Gtk.Dialog {
             if (pbar.percentage >= 1.0) { // if completed
                 pbar.progress_fill_color = pbar_complete_color;
                 var completed_label = new Gtk.Label ("Completed");
-                completed_label.get_style_context().add_class("info-text");
+                completed_label.get_style_context ().add_class ("info-text");
                 countdown_box.add (completed_label);
             } else {
                 pbar.progress_fill_color = pbar_progress_color;
 
                 var days_remaining_label = new Gtk.Label (
-                    "<b>Days remaining: </b>" + days_remaining.to_string ());
+                    "<b>" + _("Days remaining: ") + "</b>" + days_remaining.to_string ());
                 days_remaining_label.set_use_markup (true);
-                days_remaining_label.get_style_context().add_class("info-text");
+                days_remaining_label.get_style_context ().add_class ("info-text");
 
                 var days_finished_label = new Gtk.Label (
-                    "<b>Days finished: </b>" + days_finished.to_string ());
+                    "<b>" + _("Days finished: ") + "</b>" + days_finished.to_string ());
                 days_finished_label.set_use_markup (true);
-                days_finished_label.get_style_context().add_class("info-text");
+                days_finished_label.get_style_context ().add_class ("info-text");
 
                 countdown_box.add (days_remaining_label);
                 countdown_box.add (days_finished_label);
@@ -244,7 +245,7 @@ public class MainWindow : Gtk.Dialog {
                     edit_warning_rev.reveal_child = false;
                     edit_warning_rev.set_transition_type (Gtk.RevealerTransitionType.SLIDE_DOWN);
                     var edit_warning_label = new Gtk.Label ("");
-                    edit_warning_label.get_style_context().add_class("warning");
+                    edit_warning_label.get_style_context ().add_class ("warning");
                     edit_warning_rev.add (edit_warning_label);
 
                     Gtk.Popover edit_popover = new Gtk.Popover (pbar);
@@ -258,14 +259,14 @@ public class MainWindow : Gtk.Dialog {
                     });
                     var edit_popover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
 
-                    var edit_button = new Gtk.Button.with_label ("Save changes");
-                    edit_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-                    var remove_button = new Gtk.Button.with_label ("Remove");
-                    remove_button.get_style_context().add_class(Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+                    var edit_button = new Gtk.Button.with_label (_("Save changes"));
+                    edit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+                    var remove_button = new Gtk.Button.with_label (_("Remove"));
+                    remove_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
                     remove_button.margin_top = 16;
 
                     var edit_title_entry = new Gtk.Entry ();
-                    edit_title_entry.placeholder_text = "Title";
+                    edit_title_entry.placeholder_text = _("Title");
                     var edit_end_date_entry = new DatePicker ();
                     var edit_start_date_entry = new DatePicker ();
 
@@ -303,11 +304,11 @@ public class MainWindow : Gtk.Dialog {
                     });
 
                     edit_popover_box.add (edit_warning_rev);
-                    edit_popover_box.add (new Gtk.Label ("Title: "));
+                    edit_popover_box.add (new Gtk.Label (_("Title: ")));
                     edit_popover_box.add (edit_title_entry);
-                    edit_popover_box.add (new Gtk.Label ("Start date: "));
+                    edit_popover_box.add (new Gtk.Label (_("Start date: ")));
                     edit_popover_box.add (edit_start_date_entry);
-                    edit_popover_box.add (new Gtk.Label ("End date: "));
+                    edit_popover_box.add (new Gtk.Label (_("End date: ")));
                     edit_popover_box.add (edit_end_date_entry);
 
                     edit_popover_box.add (edit_button);
@@ -329,10 +330,10 @@ public class MainWindow : Gtk.Dialog {
     }
 
     private string? validate_input (string title, int end_date, int start_date) {
-        if (title == "") return "Enter title";
-        if (start_date >= end_date) return "Start date is greater than end date";
-        if (end_date < (int) get_time_now ().to_unix ()) return "End date is smaller than current date";
-        if (start_date > (int) get_time_now ().to_unix ()) return "Start date is greater than current date";
+        if (title == "") return _("Enter title");
+        if (start_date >= end_date) return _("Start date is greater than end date");
+        if (end_date < (int) get_time_now ().to_unix ()) return _("End date is smaller than current date");
+        if (start_date > (int) get_time_now ().to_unix ()) return _("Start date is greater than current date");
         return null;
     }
 
@@ -352,7 +353,7 @@ public class MainWindow : Gtk.Dialog {
             if (file.query_exists ()) {
                 stdout.printf ("File successfully created.\n");
             }
-            add_countdown ("Welcome", future.to_unix (), now.to_unix () - seconds_in_min); // minus a day off start date
+            add_countdown (_("Welcome"), future.to_unix (), now.to_unix () - seconds_in_min); // minus a day off start date
         }
 
         return file;
