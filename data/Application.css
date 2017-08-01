@@ -1,3 +1,16 @@
 popover box {
     margin: 2px;
 }
+
+.title {
+    font-size: large;
+    font-weight: bold;
+}
+
+.info-text {
+    font-size: small;
+}
+
+.warning {
+    color: red;
+}

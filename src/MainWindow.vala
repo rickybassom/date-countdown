@@ -107,7 +107,7 @@ public class MainWindow : Gtk.Dialog {
         new_warning_rev.reveal_child = false;
         new_warning_rev.set_transition_type (Gtk.RevealerTransitionType.SLIDE_DOWN);
         new_warning_label = new Gtk.Label ("");
-        new_warning_label.set_use_markup (true);
+        new_warning_label.get_style_context().add_class("warning");
         new_warning_rev.add (new_warning_label);
 
         new_title_entry = new Gtk.Entry ();
@@ -125,7 +125,7 @@ public class MainWindow : Gtk.Dialog {
                 create_popover.visible = false;
                 draw_countdowns ();
             } else {
-                new_warning_label.label = "<span foreground=\"red\">" + validate + "</span>";
+                new_warning_label.label = validate;
                 new_warning_rev.reveal_child = true;
             }
         });
@@ -198,9 +198,9 @@ public class MainWindow : Gtk.Dialog {
             pbar.height_request = pbar_size;
             pbar.line_width = 8;
 
-            var title_label = new Gtk.Label ("<b><span size=\"large\">" + countdown.title + "</span></b>");
+            var title_label = new Gtk.Label (countdown.title);
+            title_label.get_style_context().add_class("title");
             title_label.margin_bottom = 6;
-            title_label.set_use_markup (true);
             title_label.max_width_chars = 20;
             title_label.ellipsize = Pango.EllipsizeMode.END;
             title_label.set_tooltip_text (countdown.title);
@@ -214,19 +214,21 @@ public class MainWindow : Gtk.Dialog {
 
             if (pbar.percentage >= 1.0) { // if completed
                 pbar.progress_fill_color = pbar_complete_color;
-                var completed_label = new Gtk.Label ("<span size=\"small\">Completed</span>");
-                completed_label.set_use_markup (true);
+                var completed_label = new Gtk.Label ("Completed");
+                completed_label.get_style_context().add_class("info-text");
                 countdown_box.add (completed_label);
             } else {
                 pbar.progress_fill_color = pbar_progress_color;
 
                 var days_remaining_label = new Gtk.Label (
-                    "<span size=\"small\"><b>Days remaining: </b>" + days_remaining.to_string () + "</span>");
+                    "<b>Days remaining: </b>" + days_remaining.to_string ());
                 days_remaining_label.set_use_markup (true);
+                days_remaining_label.get_style_context().add_class("info-text");
 
                 var days_finished_label = new Gtk.Label (
-                    "<span size=\"small\"><b>Days finished: </b>" + days_finished.to_string () + "</span>");
+                    "<b>Days finished: </b>" + days_finished.to_string ());
                 days_finished_label.set_use_markup (true);
+                days_finished_label.get_style_context().add_class("info-text");
 
                 countdown_box.add (days_remaining_label);
                 countdown_box.add (days_finished_label);
@@ -242,7 +244,7 @@ public class MainWindow : Gtk.Dialog {
                     edit_warning_rev.reveal_child = false;
                     edit_warning_rev.set_transition_type (Gtk.RevealerTransitionType.SLIDE_DOWN);
                     var edit_warning_label = new Gtk.Label ("");
-                    edit_warning_label.set_use_markup (true);
+                    edit_warning_label.get_style_context().add_class("warning");
                     edit_warning_rev.add (edit_warning_label);
 
                     Gtk.Popover edit_popover = new Gtk.Popover (pbar);
@@ -289,7 +291,7 @@ public class MainWindow : Gtk.Dialog {
                             draw_countdowns ();
                             edit_popover.visible = false;
                         } else {
-                            edit_warning_label.label = "<span foreground=\"red\">" + validate + "</span>";
+                            edit_warning_label.label = validate;
                             edit_warning_rev.reveal_child = true;
                         }
                     });
