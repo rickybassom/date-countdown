@@ -1,5 +1,5 @@
 project('com.github.rickybas.date-countdown', ['vala', 'c'],
-    version: '0.1.1',
+    version: '0.1.2',
     license: 'GNU',
     meson_version: '>=0.40.1'
 )

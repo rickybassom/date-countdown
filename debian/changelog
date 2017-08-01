@@ -1,3 +1,10 @@
+com.github.rickybas.date-countdown (0.1.2) xenial; urgency=medium
+
+  * Fix non-latin ellipsize issue
+  * Add travis badge
+
+ -- Ricky Bassom <rbassom@yahoo.com>  Tue, 1 Aug 2017 13:09:00 -0800
+
 com.github.rickybas.date-countdown (0.1.1) xenial; urgency=low
 
   * Fix homepage link
