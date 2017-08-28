@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Moo, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-28 12:15+0300\n"
+"PO-Revision-Date: 2017-08-28 12:20+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: Moo\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt\n"
+
+#: src/circular-progress-bar.vala:230
+#, c-format
+msgid "% complete"
+msgstr "% užbaigta"
+
+#: src/MainWindow.vala:85
+msgid "Add"
+msgstr "Pridėti"
+
+#: src/MainWindow.vala:114 src/MainWindow.vala:269
+msgid "Title"
+msgstr "Pavadinimas"
+
+#: src/MainWindow.vala:118
+msgid "Create"
+msgstr "Sukurti"
+
+#: src/MainWindow.vala:139 src/MainWindow.vala:307
+msgid "Title: "
+msgstr "Pavadinimas: "
+
+#: src/MainWindow.vala:141
+msgid "Enter start date: "
+msgstr "Įveskite pradžios datą: "
+
+#: src/MainWindow.vala:143
+msgid "Enter end date: "
+msgstr "Įveskite pabaigos datą: "
+
+#: src/MainWindow.vala:225
+msgid "Days remaining: "
+msgstr "Liko dienų: "
+
+#: src/MainWindow.vala:230
+msgid "Days finished: "
+msgstr "Užbaigta dienų: "
+
+#: src/MainWindow.vala:262
+msgid "Save changes"
+msgstr "Įrašyti pakeitimus"
+
+#: src/MainWindow.vala:264
+msgid "Remove"
+msgstr "Šalinti"
+
+#: src/MainWindow.vala:309
+msgid "Start date: "
+msgstr "Pradžios data: "
+
+#: src/MainWindow.vala:311
+msgid "End date: "
+msgstr "Pabaigos data: "
+
+#: src/MainWindow.vala:333
+msgid "Enter title"
+msgstr "Įveskite pavadinimą"
+
+#: src/MainWindow.vala:334
+msgid "Start date is greater than end date"
+msgstr "Pradžios data yra vėliau nei pabaigos data"
+
+#: src/MainWindow.vala:335
+msgid "End date is smaller than current date"
+msgstr "Pabaigos data yra anksčiau nei dabartinė data"
+
+#: src/MainWindow.vala:336
+msgid "Start date is greater than current date"
+msgstr "Pradžios data yra vėliau nei dabartinė data"
+
+#: src/MainWindow.vala:356
+msgid "Welcome"
+msgstr "Sveiki atvykę"
