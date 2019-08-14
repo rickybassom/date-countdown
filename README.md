@@ -31,3 +31,18 @@ ninja
 sudo ninja install
 com.github.rickybas.date-countdown
 ```
+
+## Flatpak
+(currently without a repo)
+
+### Build
+
+```sh
+flatpak-builder build-dir com.github.rickybas.date-countdown.json
+```
+
+### Run
+
+```sh
+flatpak-builder --run build-dir com.github.rickybas.date-countdown.json com.github.rickybas.date-countdown
+```
