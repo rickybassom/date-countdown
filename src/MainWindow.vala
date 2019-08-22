@@ -47,8 +47,8 @@ public class MainWindow : Gtk.Dialog {
     private const int seconds_in_min = 86400;
     private const int refresh_time = 300000; // 5 min
     private const int pbar_size = 105;
-    private const string pbar_progress_color = "#4a90d9";
-    private const string pbar_complete_color = "#ed5353";
+    private const string pbar_progress_color = "#3689e6";
+    private const string pbar_complete_color = "#c6262e";
 
     public MainWindow (Gtk.Application application) {
         Object (application: application,
