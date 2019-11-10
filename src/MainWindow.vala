@@ -54,7 +54,7 @@ public class MainWindow : Gtk.Dialog {
         Object (application: application,
                 icon_name: "com.github.rickybas.date-countdown",
                 resizable: false,
-                title: "Date Countdown");
+                title: (_("Date Countdown")));
     }
 
     construct {
@@ -215,7 +215,7 @@ public class MainWindow : Gtk.Dialog {
 
             if (pbar.percentage >= 1.0) { // if completed
                 pbar.progress_fill_color = pbar_complete_color;
-                var completed_label = new Gtk.Label ("Completed");
+                var completed_label = new Gtk.Label (_("Completed"));
                 completed_label.get_style_context ().add_class ("info-text");
                 countdown_box.add (completed_label);
             } else {
