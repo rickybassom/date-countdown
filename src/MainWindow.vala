@@ -54,7 +54,7 @@ public class MainWindow : Gtk.Dialog {
         Object (application: application,
                 icon_name: "com.github.rickybas.date-countdown",
                 resizable: false,
-                title: (_("Date Countdown")));
+                title: _("Date Countdown"));
     }
 
     construct {
