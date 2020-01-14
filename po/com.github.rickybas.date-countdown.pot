@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the com.github.rickybas.date-countdown package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: com.github.rickybas.date-countdown\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-01 17:13+0100\n"
+"POT-Creation-Date: 2019-11-10 13:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/circular-progress-bar.vala:230
+#. Units indicator ('PERCENT')
+#: src/CircularProgressBar.vala:230
 #, c-format
 msgid "% complete"
+msgstr ""
+
+#: src/MainWindow.vala:57
+msgid "Date Countdown"
 msgstr ""
 
 #: src/MainWindow.vala:85
@@ -44,6 +49,11 @@ msgstr ""
 
 #: src/MainWindow.vala:143
 msgid "Enter end date: "
+msgstr ""
+
+#. if completed
+#: src/MainWindow.vala:218
+msgid "Completed"
 msgstr ""
 
 #: src/MainWindow.vala:225

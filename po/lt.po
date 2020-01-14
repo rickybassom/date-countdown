@@ -1,27 +1,32 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Moo, 2017.
+# Lithuanian translations for com.github.rickybas.date-countdown package.
+# Copyright (C) 2019 THE com.github.rickybas.date-countdown'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.rickybas.date-countdown package.
+# Moo, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: com.github.rickybas.date-countdown\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 12:15+0300\n"
-"PO-Revision-Date: 2017-08-28 12:20+0300\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-10 13:01+0100\n"
+"PO-Revision-Date: 2019-11-10 12:58+0100\n"
+"Last-Translator: Moo\n"
+"Language-Team: none\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
-"Last-Translator: Moo\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/circular-progress-bar.vala:230
+#. Units indicator ('PERCENT')
+#: src/CircularProgressBar.vala:230
 #, c-format
 msgid "% complete"
 msgstr "% užbaigta"
+
+#: src/MainWindow.vala:57
+msgid "Date Countdown"
+msgstr "Atvirkštinis datos skaičiavimas"
 
 #: src/MainWindow.vala:85
 msgid "Add"
@@ -46,6 +51,11 @@ msgstr "Įveskite pradžios datą: "
 #: src/MainWindow.vala:143
 msgid "Enter end date: "
 msgstr "Įveskite pabaigos datą: "
+
+#. if completed
+#: src/MainWindow.vala:218
+msgid "Completed"
+msgstr ""
 
 #: src/MainWindow.vala:225
 msgid "Days remaining: "

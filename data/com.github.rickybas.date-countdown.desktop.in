@@ -1,8 +1,6 @@
 [Desktop Entry]
 Name=Date Countdown
-Name[lt]=Atvirkštinis datos skaičiavimas
 Comment=A date countdown applet
-Comment[lt]=Atvirkštinio datos skaičiavimo programėlė
 Exec=com.github.rickybas.date-countdown
 Icon=com.github.rickybas.date-countdown
 Keywords=date;time;applet;countdown;
