@@ -1,0 +1,101 @@
+# French translations for com.github.rickybas.date-countdown package.
+# Copyright (C) 2020 THE com.github.rickybas.date-countdown'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.rickybas.date-countdown package.
+# Nathan Bonnemains (@NathanBnm), 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.rickybas.date-countdown\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-26 14:56+0100\n"
+"PO-Revision-Date: 2020-01-26 14:56+0100\n"
+"Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Units indicator ('PERCENT')
+#: src/CircularProgressBar.vala:230
+#, c-format
+msgid "% complete"
+msgstr "% terminé"
+
+#: src/MainWindow.vala:57
+msgid "Date Countdown"
+msgstr "Compte à rebours"
+
+#: src/MainWindow.vala:85
+msgid "Add"
+msgstr "Ajouter"
+
+#: src/MainWindow.vala:114 src/MainWindow.vala:269
+msgid "Title"
+msgstr "Nom"
+
+#: src/MainWindow.vala:118
+msgid "Create"
+msgstr "Créer"
+
+#: src/MainWindow.vala:139 src/MainWindow.vala:307
+msgid "Title: "
+msgstr "Nom : "
+
+#: src/MainWindow.vala:141
+msgid "Enter start date: "
+msgstr "Entrez la date de début : "
+
+#: src/MainWindow.vala:143
+msgid "Enter end date: "
+msgstr "Entrez la date de fin : "
+
+#. if completed
+#: src/MainWindow.vala:218
+msgid "Completed"
+msgstr "Terminé"
+
+#: src/MainWindow.vala:225
+msgid "Days remaining: "
+msgstr "Jours restant : "
+
+#: src/MainWindow.vala:230
+msgid "Days finished: "
+msgstr "Jours passés : "
+
+#: src/MainWindow.vala:262
+msgid "Save changes"
+msgstr "Enregistrer les modifications"
+
+#: src/MainWindow.vala:264
+msgid "Remove"
+msgstr "Supprimer"
+
+#: src/MainWindow.vala:309
+msgid "Start date: "
+msgstr "Date de début : "
+
+#: src/MainWindow.vala:311
+msgid "End date: "
+msgstr "Date de fin : "
+
+#: src/MainWindow.vala:333
+msgid "Enter title"
+msgstr "Entrez un nom"
+
+#: src/MainWindow.vala:334
+msgid "Start date is greater than end date"
+msgstr "La date de début est supérieure à la date de fin"
+
+#: src/MainWindow.vala:335
+msgid "End date is smaller than current date"
+msgstr "La date de fin est inférieure à la date actuelle"
+
+#: src/MainWindow.vala:336
+msgid "Start date is greater than current date"
+msgstr "La date de début est inférieure à la date actuelle"
+
+#: src/MainWindow.vala:356
+msgid "Welcome"
+msgstr "Bienvenue"

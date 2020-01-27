@@ -1,0 +1,56 @@
+# French translations for extra package.
+# Copyright (C) 2020 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Nathan Bonnemains (@NathanBnm), 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-26 14:56+0100\n"
+"PO-Revision-Date: 2020-01-26 14:56+0100\n"
+"Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: data/com.github.rickybas.date-countdown.desktop.in:3
+#: data/com.github.rickybas.date-countdown.appdata.xml.in:7
+msgid "Date Countdown"
+msgstr "Compte à rebours"
+
+#: data/com.github.rickybas.date-countdown.desktop.in:4
+#: data/com.github.rickybas.date-countdown.appdata.xml.in:8
+msgid "A date countdown applet"
+msgstr "Une petite application de compte à rebours de date"
+
+#: data/com.github.rickybas.date-countdown.desktop.in:6
+msgid "com.github.rickybas.date-countdown"
+msgstr "com.github.rickybas.date-countdown"
+
+#: data/com.github.rickybas.date-countdown.desktop.in:7
+msgid "date;time;applet;countdown;"
+msgstr "date;temps;widget;compte à rebours;"
+
+#: data/com.github.rickybas.date-countdown.appdata.xml.in:10
+msgid "Add multiple countdown timers for specific days"
+msgstr "Ajoutez plusieurs comptes à rebours pour des jours spécifiques"
+
+#: data/com.github.rickybas.date-countdown.appdata.xml.in:12
+msgid "Add new countdowns"
+msgstr "Ajoutez de nouveaux comptes à rebours"
+
+#: data/com.github.rickybas.date-countdown.appdata.xml.in:13
+msgid "Right click to edit each countdown"
+msgstr "Effectuez un clic droit pour modifier un compte à rebours"
+
+#: data/com.github.rickybas.date-countdown.appdata.xml.in:14
+msgid "Specify the start date too"
+msgstr "Définissez la date de début"
+
+#: data/com.github.rickybas.date-countdown.appdata.xml.in:25
+msgid "Ricky Bassom"
+msgstr "Ricky Bassom"
