@@ -29,7 +29,7 @@ ninja
 
 ```sh
 sudo ninja install
-com.github.rickybas.date-countdown
+./com.github.rickybas.date-countdown
 ```
 
 ## Flatpak
