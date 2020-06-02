@@ -31,7 +31,7 @@ namespace CircularProgressWidgets {
         public bool radius_filled {set; get; default = false;}
 
         [Description(nick = "Font", blurb = "Font description without size, just the font name")]
-        public string font {set; get; default = "URW Gothic L Book";}
+        public string font {set; get; default = "URW Gothic";}
 
         [Description(nick = "Line Cap", blurb = "Line Cap for stroke as in Cairo.LineCap")]
         public Cairo.LineCap line_cap {set; get; default = Cairo.LineCap.BUTT;}
@@ -81,8 +81,8 @@ namespace CircularProgressWidgets {
                 return _line_width;
             }
             set {
-                if (value < 1) {
-                    _line_width = 1;
+                if (value < 0) {
+                    _line_width = 0;
                 } else {
                     _line_width = value;
                 }
@@ -120,7 +120,7 @@ namespace CircularProgressWidgets {
         }
 
         private int calculate_radius () {
-            return (int) double.min (get_allocated_width () / 2, get_allocated_height () / 2) - 1;
+            return int.min (get_allocated_width () / 2, get_allocated_height () / 2) - 1;
         }
 
         private int calculate_diameter () {
@@ -169,12 +169,14 @@ namespace CircularProgressWidgets {
             var center_x = get_allocated_width () / 2;
             var center_y = get_allocated_height () / 2;
             var radius =  calculate_radius ();
-            var d = radius - line_width;
-            delta = radius - line_width / 2;
-            if (d < 0) {
+
+            if (radius - line_width < 0) {
                 delta = 0;
                 line_width = radius;
+            } else {
+                delta = radius - (line_width / 2);
             }
+
 
             color = Gdk.RGBA ();
             cr.set_line_cap  (line_cap);
@@ -196,17 +198,27 @@ namespace CircularProgressWidgets {
                 cr.stroke ();
             }
 
-            // Progress Fill
-            var progress = ((double) percentage);
-            if (progress > 0) {
-                cr.arc (center_x,
-                        center_y,
-                        delta,
-                        1.5  * Math.PI,
-                        (1.5 + progress * 2 ) * Math.PI);
+            // Progress/Percentage Fill
+            if (percentage > 0) {
                 color.parse (progress_fill_color);
                 Gdk.cairo_set_source_rgba (cr, color);
-                cr.stroke ();
+
+                if (line_width == 0) {
+                    cr.move_to (center_x, center_y);
+                    cr.arc (center_x,
+                            center_y,
+                            delta+1,
+                            1.5  * Math.PI,
+                            (1.5 + percentage * 2 ) * Math.PI);
+                    cr.fill ();
+                } else {
+                    cr.arc (center_x,
+                            center_y,
+                            delta,
+                            1.5  * Math.PI,
+                            (1.5 + percentage * 2 ) * Math.PI);
+                    cr.stroke ();
+                }
             }
 
             // Textual information
@@ -227,7 +239,7 @@ namespace CircularProgressWidgets {
             Pango.cairo_show_layout (cr, layout);
 
             // Units indicator ('PERCENT')
-            layout.set_text (_("% complete"), -1);
+            layout.set_text ("PERCENT", -1);
             desc = Pango.FontDescription.from_string (font + " 8");
             layout.set_font_description (desc);
             Pango.cairo_update_layout (cr, layout);
