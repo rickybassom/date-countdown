@@ -3,7 +3,7 @@ Upstream-Name: date-countdown
 Source: https://github.com/rickybas/date-countdown
 
 Files: src/* data/* meson/* debian/*
-Copyright: 2017 Ricky Bassom
+Copyright: 2020 Ricky Bassom
 License: GPL-3.0+
 
 License: GPL-3.0+
