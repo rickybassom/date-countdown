@@ -32,6 +32,13 @@ sudo ninja install
 ./com.github.rickybas.date-countdown
 ```
 
+## Debain build
+
+```sh
+dpkg-buildpackage -us -uc
+sudo dpkg -i com.github.rickybas.date-countdown_0.1.6_amd64.deb (or the equivalent)
+```
+
 ## Flatpak
 (currently without a repo)
 

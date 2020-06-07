@@ -1,3 +1,9 @@
+com.github.rickybas.date-countdown (0.1.6) xenial; urgency=medium
+
+  * Updated appdata
+
+ -- Ricky Bassom <rickybas12@gmail.com>  Sat, 6 Jun 2020 13:09:00 -0800
+
 com.github.rickybas.date-countdown (0.1.5) xenial; urgency=medium
 
   * Updated CircularProgressBar
