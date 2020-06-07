@@ -83,6 +83,7 @@ public class MainWindow : Gtk.Dialog {
         draw_countdowns ();
 
         add_button = new Gtk.Button.with_label (_("Add"));
+        add_button.set_tooltip_text("Add new countdown");
         add_button.margin = 4;
         add_button.halign = Gtk.Align.CENTER;
         add_button.clicked.connect (() => {
@@ -184,13 +185,9 @@ public class MainWindow : Gtk.Dialog {
 
         countdowns.foreach ((countdown) => {
             var countdown_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            if (countdowns.length == 1){
-                countdown_box.margin = 8;
-                countdown_box.margin_left = 130;
-                countdown_box.margin_right = 130;
-            } else {
-                countdown_box.margin = 8;
-            }
+            countdown_box.set_tooltip_text("Right click to edit or remove");
+            countdown_box.margin_left = 10;
+            countdown_box.margin_right = 10;
 
             var pbar = new CircularProgressWidgets.CircularProgressBar ();
             pbar.line_cap = Cairo.LineCap.ROUND;
@@ -202,7 +199,7 @@ public class MainWindow : Gtk.Dialog {
             var title_label = new Gtk.Label (countdown.title);
             title_label.get_style_context ().add_class ("countdown-title");
             title_label.margin_bottom = 6;
-            title_label.max_width_chars = 20;
+            title_label.max_width_chars = 14;
             title_label.ellipsize = Pango.EllipsizeMode.END;
             title_label.set_tooltip_text (countdown.title);
 
@@ -239,6 +236,10 @@ public class MainWindow : Gtk.Dialog {
             event_box.add (countdown_box);
             event_box.button_release_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_SECONDARY) {
+                    if (countdowns.length <= 5){
+                        grid.margin = 50;
+                    }
+                    
                     editing = true;
 
                     var edit_warning_rev = new Gtk.Revealer ();
@@ -250,12 +251,12 @@ public class MainWindow : Gtk.Dialog {
 
                     Gtk.Popover edit_popover = new Gtk.Popover (pbar);
                     // edit_popover.constrain_to = Gtk.PopoverConstraint.NONE;
-                    edit_popover.position = Gtk.PositionType.RIGHT;
                     edit_popover.closed.connect (() => {
                         editing = false;
                         edit_popover.visible = false;
                         edit_warning_label.label = "";
                         edit_warning_rev.reveal_child = false;
+                        grid.margin = 0;
                     });
                     var edit_popover_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 8);
 
@@ -313,9 +314,14 @@ public class MainWindow : Gtk.Dialog {
 
                     edit_popover_box.add (edit_button);
                     edit_popover_box.add (remove_button);
-
+                    
+                    show_all();
+                    while(Gtk.events_pending()) {
+                        Gtk.main_iteration();
+                    }
                     edit_popover_box.show_all ();
                     edit_popover.add (edit_popover_box);
+
                     edit_popover.show_all ();
                 }
                 return true;
