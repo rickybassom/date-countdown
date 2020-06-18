@@ -31,9 +31,19 @@
         <value key="x-appcenter-suggested-price">2</value>
     </custom>
     <releases>
+      <release version="0.1.8" date="2020-07-18">
+        <description>
+          <p>Fixed single countdown poover cliping bug</p>
+        </description>
+      </release>
+      <release version="0.1.7" date="2020-07-9">
+        <description>
+          <p>Added more additional app info</p>
+        </description>
+      </release>
       <release version="0.1.6" date="2020-07-6">
         <description>
-          <p>Fixed popover unresponsive clicks bug</p>
+          <p>Added additional app info</p>
         </description>
       </release>
       <release version="0.1.5" date="2020-07-3">

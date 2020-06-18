@@ -1,95 +1,99 @@
 {
-    "app-id": "com.github.rickybas.date-countdown",
-    "branch": "master",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "3.26",
-    "sdk": "org.gnome.Sdk",
-    "command": "com.github.rickybas.date-countdown",
-    "finish-args": [
-		"--socket=wayland",
-		"--socket=x11",
-		"--share=ipc",
-		"--device=dri",
-		"--socket=pulseaudio",
-		"--share=network"
-	],
-    "modules": [
+    "app-id" : "com.github.rickybas.date-countdown",
+    "branch" : "master",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "3.26",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "com.github.rickybas.date-countdown",
+    "finish-args" : [
+        "--socket=wayland",
+        "--socket=x11",
+        "--share=ipc",
+        "--device=dri",
+        "--socket=pulseaudio",
+        "--share=network"
+    ],
+    "modules" : [
         {
-			"name": "libgee",
-			"build-options": {
-				"env": {
-					"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
-					"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
-				}
-			},
-			"cleanup": [
-				"/include",
-				"/lib/*.la",
-				"/lib/pkgconfig",
-				"/share/gir-1.0",
-				"/share/vala"
-			],
-			"sources": [
-				{
-					"type": "archive",
-					"url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.0.tar.xz",
-					"sha256": "21308ba3ed77646dda2e724c0e8d5a2f8d101fb05e078975a532d7887223c2bb"
-				}
-			]
-		},
+            "name" : "libgee",
+            "build-options" : {
+                "env" : {
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR" : "/app/share/gir-1.0",
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR" : "/app/lib/girepository-1.0"
+                }
+            },
+            "cleanup" : [
+                "/include",
+                "/lib/*.la",
+                "/lib/pkgconfig",
+                "/share/gir-1.0",
+                "/share/vala"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.0.tar.xz",
+                    "sha256" : "21308ba3ed77646dda2e724c0e8d5a2f8d101fb05e078975a532d7887223c2bb"
+                }
+            ]
+        },
         {
-			"name": "granite",
-			"buildsystem": "cmake-ninja",
-			"config-opts": [
-				"-DCMAKE_BUILD_TYPE=Release",
-				"-DCMAKE_INSTALL_LIBDIR=/app/lib"
-			],
-			"build-options": {
-				"env": {
-					"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
-					"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
-				}
-			},
-			"cleanup": [
-				"/include",
-				"/lib/pkgconfig",
-				"/share/applications",
-				"/share/gir-1.0",
-				"/share/vala"
-			],
-			"sources": [
-				{
-					"type": "archive",
-					"url": "https://github.com/elementary/granite/archive/0.5.tar.gz",
-					"sha256": "cc4905ae70fddeba3d2ded44bb642be77d419aa090251a7ab24c155b8616be06"
-				}
-			]
-		},
-		{
-			"name": "elementary-icons",
-			"buildsystem": "cmake",
-			"builddir": true,
-			"config-opts": [
-				"-DCMAKE_PROJECT_NAME=hicolor"
-			],
-			"sources": [
-				{
-					"type": "archive",
-					"url": "https://github.com/elementary/icons/archive/4.3.1.tar.gz",
-					"sha256": "2fcb35760aa3285a17ecd5ef127fe5384a20cb6e86c2b4cd9ed7942063a70a10"
-				}
-			]
-		},
+            "name" : "granite",
+            "buildsystem" : "cmake-ninja",
+            "config-opts" : [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib"
+            ],
+            "build-options" : {
+                "env" : {
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR" : "/app/share/gir-1.0",
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR" : "/app/lib/girepository-1.0"
+                }
+            },
+            "cleanup" : [
+                "/include",
+                "/lib/pkgconfig",
+                "/share/applications",
+                "/share/gir-1.0",
+                "/share/vala"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://github.com/elementary/granite/archive/0.5.tar.gz",
+                    "sha256" : "cc4905ae70fddeba3d2ded44bb642be77d419aa090251a7ab24c155b8616be06"
+                }
+            ]
+        },
         {
-			"name": "Date Countdown",
-			"buildsystem": "meson",
-			"builddir": true,
-			"sources": [
-				{
-					"type": "git",
-					"url": "https://github.com/rickybas/date-countdown.git"
-				}
-			]
-		}
-    ]
+            "name" : "elementary-icons",
+            "buildsystem" : "cmake",
+            "builddir" : true,
+            "config-opts" : [
+                "-DCMAKE_PROJECT_NAME=hicolor"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://github.com/elementary/icons/archive/4.3.1.tar.gz",
+                    "sha256" : "2fcb35760aa3285a17ecd5ef127fe5384a20cb6e86c2b4cd9ed7942063a70a10"
+                }
+            ]
+        },
+        {
+            "name" : "Date Countdown",
+            "buildsystem" : "meson",
+            "builddir" : true,
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/rickybas/date-countdown.git"
+                }
+            ]
+        }
+    ],
+    "build-options" : {
+        "env" : {
+        }
+    }
 }

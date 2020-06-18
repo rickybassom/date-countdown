@@ -1,4 +1,4 @@
-project('com.github.rickybas.date-countdown', 'vala', 'c', version: '0.1.7', license: 'GPL-3.0+')
+project('com.github.rickybas.date-countdown', 'vala', 'c', version: '0.1.8', license: 'GPL-3.0+')
 
 gnome = import('gnome')
 i18n = import('i18n')

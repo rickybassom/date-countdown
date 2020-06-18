@@ -236,7 +236,12 @@ public class MainWindow : Gtk.Dialog {
             event_box.add (countdown_box);
             event_box.button_release_event.connect ((e) => {
                 if (e.button == Gdk.BUTTON_SECONDARY) {
-                    if (countdowns.length <= 5){
+                    if (countdowns.length == 1){
+                        grid.margin_left = 170;
+                        grid.margin_right = 170;
+                        grid.margin_bottom = 50;
+                    }
+                    else if (countdowns.length <= 5){
                         grid.margin = 50;
                     }
                     
@@ -337,9 +342,9 @@ public class MainWindow : Gtk.Dialog {
 
     private string? validate_input (string title, int end_date, int start_date) {
         if (title == "") return _("Enter title");
-        if (start_date >= end_date) return _("Start date is greater than end date");
-        if (end_date < (int) get_time_now ().to_unix ()) return _("End date is smaller than current date");
-        if (start_date > (int) get_time_now ().to_unix ()) return _("Start date is greater than current date");
+        if (start_date >= end_date) return _("Start date is greater than or equal to the end date");
+        if (end_date < (int) get_time_now ().to_unix ()) return _("End date is smaller than or equal to the current date");
+        if (start_date > (int) get_time_now ().to_unix ()) return _("Start date is greater than the current date");
         return null;
     }
 
