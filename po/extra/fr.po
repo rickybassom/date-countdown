@@ -17,40 +17,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: data/com.github.rickybas.date-countdown.desktop.in:3
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:7
+#: data/com.github.rickybassom.date-countdown.desktop.in:3
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:7
 msgid "Date Countdown"
 msgstr "Compte à rebours"
 
-#: data/com.github.rickybas.date-countdown.desktop.in:4
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:8
+#: data/com.github.rickybassom.date-countdown.desktop.in:4
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:8
 msgid "A date countdown applet"
 msgstr "Une petite application de compte à rebours de date"
 
-#: data/com.github.rickybas.date-countdown.desktop.in:6
-msgid "com.github.rickybas.date-countdown"
-msgstr "com.github.rickybas.date-countdown"
+#: data/com.github.rickybassom.date-countdown.desktop.in:6
+msgid "com.github.rickybassom.date-countdown"
+msgstr "com.github.rickybassom.date-countdown"
 
-#: data/com.github.rickybas.date-countdown.desktop.in:7
+#: data/com.github.rickybassom.date-countdown.desktop.in:7
 msgid "date;time;applet;countdown;"
 msgstr "date;temps;widget;compte à rebours;"
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:10
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:10
 msgid "Add multiple countdown timers for specific days"
 msgstr "Ajoutez plusieurs comptes à rebours pour des jours spécifiques"
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:12
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:12
 msgid "Add new countdowns"
 msgstr "Ajoutez de nouveaux comptes à rebours"
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:13
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:13
 msgid "Right click to edit each countdown"
 msgstr "Effectuez un clic droit pour modifier un compte à rebours"
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:14
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:14
 msgid "Specify the start date too"
 msgstr "Définissez la date de début"
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:25
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:25
 msgid "Ricky Bassom"
 msgstr "Ricky Bassom"

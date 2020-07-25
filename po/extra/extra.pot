@@ -17,40 +17,40 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/com.github.rickybas.date-countdown.desktop.in:3
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:7
+#: data/com.github.rickybassom.date-countdown.desktop.in:3
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:7
 msgid "Date Countdown"
 msgstr ""
 
-#: data/com.github.rickybas.date-countdown.desktop.in:5
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:8
+#: data/com.github.rickybassom.date-countdown.desktop.in:5
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:8
 msgid "A date countdown applet"
 msgstr ""
 
-#: data/com.github.rickybas.date-countdown.desktop.in:8
-msgid "com.github.rickybas.date-countdown"
+#: data/com.github.rickybassom.date-countdown.desktop.in:8
+msgid "com.github.rickybassom.date-countdown"
 msgstr ""
 
-#: data/com.github.rickybas.date-countdown.desktop.in:9
+#: data/com.github.rickybassom.date-countdown.desktop.in:9
 msgid "date;time;applet;countdown;"
 msgstr ""
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:10
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:10
 msgid "Add multiple countdown timers for specific days"
 msgstr ""
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:12
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:12
 msgid "Add new countdowns"
 msgstr ""
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:13
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:13
 msgid "Right click to edit each countdown"
 msgstr ""
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:14
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:14
 msgid "Specify the start date too"
 msgstr ""
 
-#: data/com.github.rickybas.date-countdown.appdata.xml.in:25
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:25
 msgid "Ricky Bassom"
 msgstr ""

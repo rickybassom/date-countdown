@@ -4,7 +4,7 @@
     <shortdesc xml:lang="en">A minimalist date countdown applet</shortdesc>
     <programming-language>Vala</programming-language>
     <category rdf:resource="http://api.gnome.org/doap-extensions#apps"/>
-    <homepage rdf:resource="https://github.com/rickybas/date-countdown"/>
-    <download-page rdf:resource="https://github.com/rickybas/date-countdown/releases"/>
-    <bug-database rdf:resource="https://github.com/rickybas/date-countdown/issues"/>
+    <homepage rdf:resource="https://github.com/rickybassom/date-countdown"/>
+    <download-page rdf:resource="https://github.com/rickybassom/date-countdown/releases"/>
+    <bug-database rdf:resource="https://github.com/rickybassom/date-countdown/issues"/>
 </Project>

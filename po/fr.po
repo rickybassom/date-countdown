@@ -1,11 +1,11 @@
-# French translations for com.github.rickybas.date-countdown package.
-# Copyright (C) 2020 THE com.github.rickybas.date-countdown'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.github.rickybas.date-countdown package.
+# French translations for com.github.rickybassom.date-countdown package.
+# Copyright (C) 2020 THE com.github.rickybassom.date-countdown'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.rickybassom.date-countdown package.
 # Nathan Bonnemains (@NathanBnm), 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: com.github.rickybas.date-countdown\n"
+"Project-Id-Version: com.github.rickybassom.date-countdown\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-26 14:56+0100\n"
 "PO-Revision-Date: 2020-01-26 14:56+0100\n"

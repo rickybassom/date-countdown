@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Date Countdown
 Comment=A date countdown applet
-Exec=com.github.rickybas.date-countdown
-Icon=com.github.rickybas.date-countdown
+Exec=com.github.rickybassom.date-countdown
+Icon=com.github.rickybassom.date-countdown
 Keywords=date;time;applet;countdown;
 Terminal=false
 Type=Application
