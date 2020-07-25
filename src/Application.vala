@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2017 Ricky Bassom (https://github.com/rickybas)
+* Copyright (c) 2017 Ricky Bassom (https://github.com/rickybassom)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -20,7 +20,7 @@
 
 public class DateCountdown : Gtk.Application {
     public DateCountdown () {
-        Object (application_id: "com.github.rickybas.date-countdown",
+        Object (application_id: "com.github.rickybassom.date-countdown",
         flags: ApplicationFlags.FLAGS_NONE);
     }
 
@@ -32,7 +32,7 @@ public class DateCountdown : Gtk.Application {
 
         var app_window = new MainWindow (this);
 
-        var settings = new Settings ("com.github.rickybas.date-countdown");
+        var settings = new Settings ("com.github.rickybassom.date-countdown");
 
         var window_x = settings.get_int ("window-x");
         var window_y = settings.get_int ("window-y");
@@ -49,7 +49,7 @@ public class DateCountdown : Gtk.Application {
         add_accelerator ("<Control>q", "app.quit", null);
 
         var provider = new Gtk.CssProvider ();
-        provider.load_from_resource ("com/github/rickybas/date-countdown/Application.css");
+        provider.load_from_resource ("com/github/rickybassom/date-countdown/Application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         quit_action.activate.connect (() => {

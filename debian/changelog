@@ -1,3 +1,9 @@
+com.github.rickybassom.date-countdown (0.1.9) xenial; urgency=medium
+
+  * Github username update
+
+ -- Ricky Bassom <rickybas12@gmail.com>  Sun, 26 Jun 2020 13:09:00 -0800
+
 com.github.rickybassom.date-countdown (0.1.8) xenial; urgency=medium
 
   * Fixed single countdown poover cliping bug

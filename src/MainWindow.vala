@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2017 Ricky Bassom (https://github.com/rickybas)
+* Copyright (c) 2017 Ricky Bassom (https://github.com/rickybassom)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -52,7 +52,7 @@ public class MainWindow : Gtk.Dialog {
 
     public MainWindow (Gtk.Application application) {
         Object (application: application,
-                icon_name: "com.github.rickybas.date-countdown",
+                icon_name: "com.github.rickybassom.date-countdown",
                 resizable: false,
                 title: _("Date Countdown"));
     }

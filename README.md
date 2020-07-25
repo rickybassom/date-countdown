@@ -36,7 +36,7 @@ sudo ninja install
 
 ```sh
 dpkg-buildpackage -us -uc
-sudo dpkg -i com.github.rickybassom.date-countdown_0.1.8_amd64.deb (or the equivalent)
+sudo dpkg -i com.github.rickybassom.date-countdown_0.1.9_amd64.deb (or the equivalent)
 ```
 
 ## Flatpak
