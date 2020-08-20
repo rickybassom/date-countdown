@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.rickybassom.date-countdown package.
+# André Barata <andretiagob@protonmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.rickybassom.date-countdown\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-10 13:01+0100\n"
+"PO-Revision-Date: 2020-08-21 00:39+0100\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: André Barata <andretiagob@protonmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pt\n"
+
+#. Units indicator ('PERCENT')
+#: src/CircularProgressBar.vala:230
+#, c-format
+msgid "% complete"
+msgstr "% completado"
+
+#: src/MainWindow.vala:57
+msgid "Date Countdown"
+msgstr "Contagem Decrescente"
+
+#: src/MainWindow.vala:85
+msgid "Add"
+msgstr "Adicionar"
+
+#: src/MainWindow.vala:114 src/MainWindow.vala:269
+msgid "Title"
+msgstr "Título"
+
+#: src/MainWindow.vala:118
+msgid "Create"
+msgstr "Criar"
+
+#: src/MainWindow.vala:139 src/MainWindow.vala:307
+msgid "Title: "
+msgstr "Título:"
+
+#: src/MainWindow.vala:141
+msgid "Enter start date: "
+msgstr "Insira data de inicio:"
+
+#: src/MainWindow.vala:143
+msgid "Enter end date: "
+msgstr "Insira data do fim:"
+
+#. if completed
+#: src/MainWindow.vala:218
+msgid "Completed"
+msgstr "Completado"
+
+#: src/MainWindow.vala:225
+msgid "Days remaining: "
+msgstr "Dias restantes:"
+
+#: src/MainWindow.vala:230
+msgid "Days finished: "
+msgstr "Dias acabados:"
+
+#: src/MainWindow.vala:262
+msgid "Save changes"
+msgstr "Gravar alterações"
+
+#: src/MainWindow.vala:264
+msgid "Remove"
+msgstr "Remover"
+
+#: src/MainWindow.vala:309
+msgid "Start date: "
+msgstr "Data de inicio:"
+
+#: src/MainWindow.vala:311
+msgid "End date: "
+msgstr "Data do fim:"
+
+#: src/MainWindow.vala:333
+msgid "Enter title"
+msgstr "Insira título"
+
+#: src/MainWindow.vala:334
+msgid "Start date is greater than end date"
+msgstr "A data de inicio é superior á data do fim"
+
+#: src/MainWindow.vala:335
+msgid "End date is smaller than current date"
+msgstr "A data do fim é inferior á data atual"
+
+#: src/MainWindow.vala:336
+msgid "Start date is greater than current date"
+msgstr "A data de inicio é superior á data atual"
+
+#: src/MainWindow.vala:356
+msgid "Welcome"
+msgstr "Bem Vindo"
