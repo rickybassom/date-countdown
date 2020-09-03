@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# André Barata <andretiagob@protonmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-10 13:01+0100\n"
+"PO-Revision-Date: 2020-08-21 00:43+0100\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: André Barata <andretiagob@protonmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pt\n"
+
+#: data/com.github.rickybassom.date-countdown.desktop.in:3
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:7
+msgid "Date Countdown"
+msgstr "Contagem Decrescente"
+
+#: data/com.github.rickybassom.date-countdown.desktop.in:5
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:8
+msgid "A date countdown applet"
+msgstr "Um utilitário de contagem decrescente"
+
+#: data/com.github.rickybassom.date-countdown.desktop.in:8
+msgid "com.github.rickybassom.date-countdown"
+msgstr "com.github.rickybassom.date-countdown"
+
+#: data/com.github.rickybassom.date-countdown.desktop.in:9
+msgid "date;time;applet;countdown;"
+msgstr "data;tempo;utilitário;contagem;decrescente;"
+
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:10
+msgid "Add multiple countdown timers for specific days"
+msgstr "Adicione várias contagens decrescentes para dias específicos"
+
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:12
+msgid "Add new countdowns"
+msgstr "Adicionar nova contagens decrescentes"
+
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:13
+msgid "Right click to edit each countdown"
+msgstr "Clique no botão direito do rato em cada contagem decrescente"
+
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:14
+msgid "Specify the start date too"
+msgstr "Especifique a data de inicio também"
+
+#: data/com.github.rickybassom.date-countdown.appdata.xml.in:25
+msgid "Ricky Bassom"
+msgstr "Ricky Bassom"
