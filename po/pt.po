@@ -67,7 +67,7 @@ msgstr "Dias acabados:"
 
 #: src/MainWindow.vala:262
 msgid "Save changes"
-msgstr "Gravar alterações"
+msgstr "Guardar alterações"
 
 #: src/MainWindow.vala:264
 msgid "Remove"
