@@ -1,3 +1,9 @@
+com.github.rickybassom.date-countdown (0.2.0) xenial; urgency=medium
+
+  * Use old RDNN to work with Houston
+
+ -- Ricky Bassom <rickybas12@gmail.com>  Sun, 8 Nov 2020 13:09:00 -0800
+
 com.github.rickybassom.date-countdown (0.1.9) xenial; urgency=medium
 
   * Github username update
