@@ -179,6 +179,8 @@ public class MainWindow : Gtk.Dialog {
 
         if (countdowns.length == 0){
             grid.margin = 130;
+        } else if (countdowns.length == 1) {
+            grid.margin = 20;
         } else {
             grid.margin = 0;
         }
