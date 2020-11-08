@@ -15,7 +15,7 @@
         </ul>
     </description>
     <provides>
-        <binary>com.github.rickybassom.date-countdown</binary>
+        <binary>com.github.rickybas.date-countdown</binary>
     </provides>
     <screenshots>
         <screenshot type="default">
